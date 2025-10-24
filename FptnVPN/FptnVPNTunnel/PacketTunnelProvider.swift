@@ -51,6 +51,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     
     private func createTunnelNetworkSettings(dnsIPv4: String, dnsIPv6: String) -> NEPacketTunnelNetworkSettings {
         let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "127.0.0.1")
+        settings.tunnelOverheadBytes = 150
+        settings.MTU = 1400
         
         // IPv4 settings
         let ipv4Settings = NEIPv4Settings(addresses: ["10.8.0.2"], subnetMasks: ["255.255.255.0"])
